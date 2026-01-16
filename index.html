@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Wordly's First Interactive Digital Dictionary</h1>
+    </header>
+
+    <main>
+        <p>Search for words, view their definitions, and save your favorite terms for future reference—all on a single page!!!</p>
+
+        <section id="search-section">
+    <form id="search-form">
+        <input id="search-input" type="text" placeholder="Enter a word to search">
+        <button id="search-button" type="submit">Search</button>
+    </form>
+</section>
+
+<section id="results-section">
+
+    <h2>Search Results</h2>
+    <div id="error" class="error"></div>
+
+    <!-- Search Result Box -->
+<div id="result-box" class="hidden">
+        <h3 id="word-output"></h3>
+        <p id="pronunciation"></p>
+        <div id="definitions"></div>
+        <button id="play-audio" class="hidden">🔊 Play Pronunciation</button>
+        <form id="save-word-form">
+            <button id="save-word-btn" type="submit">Save Word</button>
+        </form>
+    </div>
+
+    <h3>Saved Words</h3>
+    <ul id="saved-words"></ul>
+ <input id="saved-words-input" type="text" placeholder="">
+</section>
+
+</section>
+    <footer>
+        <p>&copy; 2025 all rights reserved</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
