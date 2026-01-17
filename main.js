@@ -55,7 +55,6 @@ async function fetchWord(word) {
     try {
         clearError(); // clear any previous errors
         clearResult(); // clear previous results
-        hideResult(); // hide previous results
 
         const response = await fetch(`${API_URL}/${word}`); //fetching data from the API
 
@@ -70,7 +69,8 @@ async function fetchWord(word) {
     } catch (error) {
        clearResult(); // clear previous results
        hideResult(); // keep results hidden
-       showError(error.message); // show error message
+       showError("Word not found, please try another one."); // show error message
+       //console.error("Word not found, please try another one.", error); this code will hide the error message - no output on server
     }
 }
 
