@@ -2,6 +2,7 @@ const playAudioBtn = document.getElementById("play-audio"); //button to play pro
 let pronunciationAudio = null;
 
 //Play audio when button is clicked
+// Putting this event listener here to ensure pronunciationAudio is defined before use and avoid null errors
 playAudioBtn.addEventListener("click", () => {
     if (pronunciationAudio) {
         pronunciationAudio.currentTime = 0; // restart audio
@@ -90,13 +91,13 @@ function displayResult(entry) {
         pronunciationAudio = new Audio(audioSrc); // create audio object
         playAudioBtn.classList.remove("hidden");
     } else {
-        pronunciationAudio = null;
-        playAudioBtn.classList.add("hidden");
+        pronunciationAudio = null; // no audio is available for this word
+        playAudioBtn.classList.add("hidden"); // hide play button - still getting a bug here. Debug later
     } 
 
     // loop through meanings and definitions
     entry.meanings.forEach(meaning => {
-        const part = document.createElement("p");
+        const part = document.createElement("p"); // create paragraph for part of speech
         part.innerHTML = `<strong>${meaning.partOfSpeech}</strong>`; //shows part of speech
         definitionsBox.appendChild(part); // add part of speech to definitions box
 
@@ -137,25 +138,25 @@ function renderSavedWords() {
 }
 
 // showing error messages
-function showError(message) {
+function showError(message) { // display error message
     errorBox.textContent = message;
     errorBox.style.display = "block"; // make error box visible
 }
 
 // clearing error messages
 function clearError() {
-    errorBox.textContent = "";
+    errorBox.textContent = ""; // clear error text
     errorBox.style.display = "none"; //hide error box
 }
 
 // clearing results
 function clearResult() {
-    wordOutput.textContent = "";
-    pronunciationOutput.textContent = "";
-    definitionsBox.innerHTML = "";
-    pronunciationAudio = null;
-    playAudioBtn.classList.add("hidden");
-    currentWord = null;
+    wordOutput.textContent = ""; // clear the word output
+    pronunciationOutput.textContent = ""; // clear the pronunciation output
+    definitionsBox.innerHTML = ""; // clear definitions
+    pronunciationAudio = null; // clear audio
+    playAudioBtn.classList.add("hidden"); // hide play button - Needs debugging
+    currentWord = null; // clear current word
 }
 
 // hiding the result box
