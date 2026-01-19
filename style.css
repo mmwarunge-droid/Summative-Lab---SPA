@@ -42,7 +42,7 @@ main p {
 #search-button {
   padding: 8px 12px;
   background-color: #4f46e5;
-  color: white;
+  color: rgb(120, 117, 206);
   border: none;
   cursor: pointer;
 }
